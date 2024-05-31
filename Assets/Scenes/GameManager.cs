@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject boxPrefab;
     public GameObject goalPrefab;
-    public GameObject particleRrefab;
 
     /// <summary>初期状態が入っている</summary>
     int[,] map;
@@ -117,7 +116,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         clearText.SetActive(false);
-
+        Screen.SetResolution(1280, 720, false);
         map = new int[,]
         {
             { 1, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -129,8 +128,6 @@ public class GameManager : MonoBehaviour
         };
 
         PrintArray();
-
-        Instantiate(particleRrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
         field = new GameObject[
             map.GetLength(0),
